@@ -1,0 +1,46 @@
+---
+title: "OSTRICH: Versioned Random-Access Triple Store"
+---
+<header markdown="1">
+<h1><%= h(@item[:title]).gsub(/\n/, '<br>') %></h1>
+<div id="repeating-title"><%= @item[:title] %></div>
+
+{:#authors}
+- <%= person 'Ruben Taelman', 'http://www.rubensworks.net/', 'http://www.rubensworks.net/#me' %>
+- <%= person 'Ruben Verborgh', 'https://ruben.verborgh.org/', 'https://ruben.verborgh.org/profile/#me' %>
+
+{:#affiliations}
+- {:#idlab} IDLab,
+            Department of Electronics and Information Systems,
+            Ghent University – imec
+
+<section class="actions" markdown="block">
+## Notifications and annotations
+- [notification inbox](https://linkedresearch.org/inbox/linkedresearch.org/){:rel="ldp:inbox"}
+- [annotation service](https://linkedresearch.org/annotation/linkedresearch.org/){:rel="oa:annotationService"}
+</section>
+
+<section class="context" markdown="block">
+## In reply to
+- [Call for Linked Research](https://linkedresearch.org/calls){:rel="as:inReplyTo"}
+- [The Web Conference 2018 call for demos](https://www2018.thewebconf.org/call-for-papers/demos-track-cfp/){:rel="as:inReplyTo"}
+</section>
+
+</header>
+
+<div id="content">
+  <%= section 'abstract' %>
+
+<main>
+  <%= section 'introduction'  %>
+  <%= section 'system'  %>
+  <%= section 'demonstration-overview'  %>
+  <%= section 'conclusions'  %>
+</main>
+
+<footer>
+  <%= section 'acknowledgements'  %>
+  <%= section 'biographies'  %>
+</footer>
+
+</div>
