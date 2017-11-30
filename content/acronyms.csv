@@ -1,8 +1,4 @@
 abbreviation,full
-RPC,Remote Procedure Calling
-REST,Representational State Transfer
-HTTP,Hypertext Transfer Protocol
+OSTRICH,Offset-enabled Triple store for Changesets
 RDF,Resource Description Framework
 SPARQL,SPARQL Procotol and RDF Query Language
-SHACL,Shapes Constraint Language
-OWL,Web Ontology Language
