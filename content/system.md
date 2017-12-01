@@ -28,7 +28,8 @@ which is lower than most alternative solutions.
 Only for VM queries on individual HDT copies, OSTRICH is slightly slower, while it requires less storage space.
 
 OSTRICH is implemented in C++, and is available as open source on [GitHub](https://github.com/rdfostrich/ostrich){:.mandatory}.
-Additionally, JavaScript bindings for NodeJS have been implemented and are available on [NPM](https://www.npmjs.com/package/ostrich-bindings){:.mandatory}.
+Additionally, JavaScript bindings for Node.js have been implemented and are available on [NPM](https://www.npmjs.com/package/ostrich-bindings){:.mandatory}.
+These JavaScript bindings however lead to slightly slower queries compared to the native C++ API.
 The C++ and JavaScript APIs allow OSTRICH stores to be queried using VM, DM and VQ triple pattern queries with a certain limit and offset.
 Additionally, their count estimates can be retrieved.
 Finally, new dataset versions can be ingested as changesets, i.e.,
