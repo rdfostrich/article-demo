@@ -170,13 +170,13 @@ header {
   }
 }
 
-table, img, object, iframe, figure, audio, video, canvas { page-break-inside:avoid; }
+table, figure img, object, iframe, figure, audio, video, canvas { page-break-inside:avoid; }
 object, iframe {
 width:100% !important;
 height:auto !important;
 min-height:240px !important;
 }
-img, video { max-width:100% !important; height:auto !important; }
+figure img, video { max-width:100% !important; height:auto !important; }
 
 
 /*
