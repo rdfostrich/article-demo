@@ -34,6 +34,6 @@ Hybrid storage strategies, such as applied by [TailR](cite:cites tailr), can how
 
 In this work, we describe and demonstrate OSTRICH, which is a hybrid IC-CB-TB storage technique,
 that offers efficient random-access VM, DM and VQ triple pattern query support.
-This system is further discussed in [](#system).
+This system is further discussed in [](#system), together with a preliminary evaluation in [](#preliminary_evaluation).
 After that, we give an overview of a demonstration of OSTRICH using a Web-based graphical user interface in [](#demonstration-overview).
 Finally, we discuss our conclusions and opportunities for future work in [](#conclusions).
