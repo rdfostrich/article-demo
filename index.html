@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>OSTRICH: Versioned Random-Access Triple Store</title>
+  <link rel="stylesheet" media="screen" href="styles/screen.css" />
+  <link rel="stylesheet" media="print"  href="styles/print.css" />
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet" />
+  <link href="https://dokie.li/media/css/do.css" media="all" rel="stylesheet" />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet" />
+  <script src="https://dokie.li/scripts/simplerdf.js"></script>
+  <script src="https://dokie.li/scripts/medium-editor.min.js"></script>
+  <script src="https://dokie.li/scripts/medium-editor-tables.min.js"></script>
+  <script src="https://dokie.li/scripts/do.js"></script>
+</head>
+<body about="" prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# rdfs: http://www.w3.org/2000/01/rdf-schema# owl: http://www.w3.org/2002/07/owl# xsd: http://www.w3.org/2001/XMLSchema# dcterms: http://purl.org/dc/terms/ dctypes: http://purl.org/dc/dcmitype/ foaf: http://xmlns.com/foaf/0.1/ v: http://www.w3.org/2006/vcard/ns# pimspace: http://www.w3.org/ns/pim/space# cc: https://creativecommons.org/ns# skos: http://www.w3.org/2004/02/skos/core# prov: http://www.w3.org/ns/prov# qb: http://purl.org/linked-data/cube# schema: http://schema.org/ void: http://rdfs.org/ns/void# rsa: http://www.w3.org/ns/auth/rsa# cert: http://www.w3.org/ns/auth/cert# cal: http://www.w3.org/2002/12/cal/ical# wgs: http://www.w3.org/2003/01/geo/wgs84_pos# org: http://www.w3.org/ns/org# biblio: http://purl.org/net/biblio# bibo: http://purl.org/ontology/bibo/ book: http://purl.org/NET/book/vocab# ov: http://open.vocab.org/terms/ sioc: http://rdfs.org/sioc/ns# doap: http://usefulinc.com/ns/doap# dbr: http://dbpedia.org/resource/ dbp: http://dbpedia.org/property/ sio: http://semanticscience.org/resource/ opmw: http://www.opmw.org/ontology/ deo: http://purl.org/spar/deo/ doco: http://purl.org/spar/doco/ cito: http://purl.org/spar/cito/ fabio: http://purl.org/spar/fabio/ oa: http://www.w3.org/ns/oa# as: https://www.w3.org/ns/activitystreams# ldp: http://www.w3.org/ns/ldp# solid: http://www.w3.org/ns/solid/terms# acl: http://www.w3.org/ns/auth/acl# dio: https://w3id.org/dio#" typeof="schema:CreativeWork sioc:Post prov:Entity">
+  <header>
+  <h1><span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span>: Versioned Random-Access Triple Store</h1>
+  <div id="repeating-title"><span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span>: Versioned Random-Access Triple Store</div>
+
+  <ul id="authors">
+    <li><a href="http://www.rubensworks.net/" typeof="http://xmlns.com/foaf/0.1/Person" resource="http://www.rubensworks.net/#me">Ruben Taelman</a></li>
+    <li><a href="https://ruben.verborgh.org/" typeof="http://xmlns.com/foaf/0.1/Person" resource="https://ruben.verborgh.org/profile/#me">Ruben Verborgh</a></li>
+  </ul>
+
+  <ul id="affiliations">
+    <li id="idlab">IDLab,
+          Department of Electronics and Information Systems,
+          Ghent University – imec</li>
+  </ul>
+
+  <section class="actions">
+    <h2 id="notifications-and-annotations">Notifications and annotations</h2>
+    <ul>
+      <li><a href="https://linkedresearch.org/inbox/linkedresearch.org/" rel="ldp:inbox">notification inbox</a></li>
+      <li><a href="https://linkedresearch.org/annotation/linkedresearch.org/" rel="oa:annotationService">annotation service</a></li>
+    </ul>
+  </section>
+
+  <section class="context">
+    <h2 id="in-reply-to">In reply to</h2>
+    <ul>
+      <li><a href="https://linkedresearch.org/calls" rel="as:inReplyTo">Call for Linked Research</a></li>
+      <li><a href="https://www2018.thewebconf.org/call-for-papers/demos-track-cfp/" rel="as:inReplyTo">The Web Conference 2018 call for demos</a></li>
+    </ul>
+  </section>
+
+</header>
+
+<div id="content">
+  <section id="abstract">
+    <h2>Abstract</h2>
+    <!-- Context      -->
+    <p>The collection of Linked Data is evergrowing and many datasets are frequently being updated.
+In order to fully exploit the potential of the information that is available in and over historical dataset versions,
+<!-- Need         -->
+we need to be able to store and query Linked Datasets efficiently.
+<!-- Task         -->
+In this demonstration, we introduce <span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span>, which is an efficient triple store with versioned querying support.
+<!-- Object       -->
+We demonstrate the capabilities of <span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> using a Web-based graphical user interface in which a store can be opened or created.
+Using this interface, the user is able to querying in, between and over different versions,
+ingest new versions, and retrieve summarizing statistics.
+<!-- Findings     -->
+<!-- Conclusion   -->
+<!-- Perspectives --></p>
+
+    <p><span id="keywords"><span class="title">Keywords</span> Linked Data, <span class='abbreviation' title='Resource Description Framework'>RDF</span>, versioning, <span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span>, triple store</span></p>
+
+  </section>
+
+
+<main>
+  <section id="introduction">
+      <h2>Introduction</h2>
+
+      <p>Many of the Linked Datasets <a class="reference" href="#ref-1">[1]</a> that are available on the Web can change over time <a class="reference" href="#ref-2">[2]</a>.
+As many of these dataset publishers host separate snapshots of each of these versions next to each other,
+this can introduce storage overhead due to possible redundancies between each version.
+Furthermore, separated snapshots can make it harder to execute queries for performing historical analysis.</p>
+
+      <p><a property="http://purl.org/spar/cito/cites" href="http://www.w3.org/TR/2014/REC-rdf11-concepts-20140225/"><span class='abbreviation' title='Resource Description Framework'>RDF</span></a> <a class="reference" href="#ref-3">[3]</a> is a recommended framework for representing Linked Data.
+Over the last couple of years, <span class='abbreviation' title='Resource Description Framework'>RDF</span> archiving has been an active area of research <a class="reference" href="#ref-4">[4]</a><a class="reference" href="#ref-5">[5]</a><a class="reference" href="#ref-6">[6]</a><a class="reference" href="#ref-7">[7]</a><a class="reference" href="#ref-8">[8]</a>.
+Fernández et al. define an <a property="http://purl.org/spar/cito/cites" href="https://aic.ai.wu.ac.at/qadlod/docs/semantics16.pdf"><em><span class='abbreviation' title='Resource Description Framework'>RDF</span> archive</em></a> <a class="reference" href="#ref-9">[9]</a> as a set of version-annotated triples,
+where a <em>version-annotated triple</em> is an <span class='abbreviation' title='Resource Description Framework'>RDF</span> triple that is annotated with a label representing the version in which this triple holds.
+Three <a property="http://purl.org/spar/cito/cites" href="http://ceur-ws.org/Vol-1377/paper6.pdf">three strategies</a> <a class="reference" href="#ref-10">[10]</a> were identified on how <span class='abbreviation' title='Resource Description Framework'>RDF</span> archives can be stored:</p>
+
+      <ol>
+        <li>The <strong>Independent Copies (<span class='abbreviation' title='Independent copies'>IC</span>)</strong> approach creates separate instantiations of datasets for
+each change or set of changes.</li>
+        <li>The <strong>Change-Based (CB)</strong> approach instead only stores change sets between versions.</li>
+        <li>The <strong>Timestamp-Based (<span class='abbreviation' title='Timestamp-based'>TB</span>)</strong> approach stores the temporal validity of facts.</li>
+      </ol>
+
+      <p>Additionally, <a property="http://purl.org/spar/cito/cites" href="https://aic.ai.wu.ac.at/qadlod/docs/semantics16.pdf">several query types were introduced</a> <a class="reference" href="#ref-9">[9]</a> to cover the retrieval demands in <span class='abbreviation' title='Resource Description Framework'>RDF</span> archives, which are referred to as <em>query atoms</em>.
+In this work, we consider the following query atoms:</p>
+
+      <ol>
+        <li><strong>Version materialization (VM)</strong> retrieves data using queries targeted at a single version.
+Example: <em>Which books were present in the library yesterday?</em></li>
+        <li><strong>Delta materialization (<span class='abbreviation' title='Delta materialization'>DM</span>)</strong> retrieves query result change sets between two versions.
+Example: <em>Which books were returned or taken from the library between yesterday and now?</em></li>
+        <li><strong>Version query (VQ)</strong> annotates query results with the versions in which they are valid.
+Example: <em>At what times was book X present in the library?</em></li>
+      </ol>
+
+      <p>Each of these storage strategies have their advantages and disadvantages in combination with certain query atoms.
+For instance, <span class='abbreviation' title='Independent copies'>IC</span> works well in combination with VM queries because it stores each version separately, so it can query each version separately as well.
+However, <span class='abbreviation' title='Independent copies'>IC</span> is less efficient for <span class='abbreviation' title='Delta materialization'>DM</span> queries because it requires the differences between two dataset versions for the given query to be generated on-the-fly.
+Hybrid storage strategies, such as applied by TailR <a class="reference" href="#ref-11">[11]</a>, can however provide different trade-offs between these strategies.</p>
+
+      <p>In this work, we describe and demonstrate <span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span>, which is a hybrid <span class='abbreviation' title='Independent copies'>IC</span>-CB-<span class='abbreviation' title='Timestamp-based'>TB</span> storage technique,
+that offers efficient random-access VM, <span class='abbreviation' title='Delta materialization'>DM</span> and VQ triple pattern query support.
+This system is further discussed in <a href="#system">Section 2</a>, together with a preliminary evaluation in <a href="#preliminary_evaluation">Section 3</a>.
+After that, we give an overview of a demonstration of <span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> using a Web-based graphical user interface in <a href="#demonstration-overview">Section 4</a>.
+Finally, we discuss our conclusions and opportunities for future work in <a href="#conclusions">Section 5</a>.</p>
+
+    </section>
+
+  <section id="system">
+      <h2>System</h2>
+
+      <p>In this section, we give a brief overview of <span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span>, the system on which this demonstration is built.</p>
+
+      <p><span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> is a versioned triple store format that allows VM, <span class='abbreviation' title='Delta materialization'>DM</span> and VQ triple pattern queries to be resolved efficiently.
+Furthermore, these queries return a triple stream, so that consumers can start using these triples as soon as the earliest one arrives.
+These triple streams support random-access, using which consumers can easily and efficiently apply an offset.
+As certain systems, such as <span class='abbreviation' title='SPARQL Procotol and RDF Query Language'>SPARQL</span> query engines, typically optimize triple pattern join orders using estimated triple counts,
+<span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> provides efficient count esimation for VM, <span class='abbreviation' title='Delta materialization'>DM</span> and VQ queries.</p>
+
+      <p>Internally, <span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> stores a versioned dataset in a hybrid <span class='abbreviation' title='Independent copies'>IC</span>-CB-<span class='abbreviation' title='Timestamp-based'>TB</span> way, using multiple indexes for supporting the different query types.
+The initial version of a dataset is stored as a fully materialized and immutable snapshot.
+This snapshot is stored as an <a property="http://purl.org/spar/cito/cites" href="http://www.websemanticsjournal.org/index.php/ps/article/view/328">HDT</a> <a class="reference" href="#ref-12">[12]</a> file, due to its highly efficient support for triple pattern queries and count esimation.
+All other versions are stored as changesets relative to the initial version,
+but merged in a timestamp-based manner to reduce redundancies between each version.</p>
+
+      <p><span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> is implemented in C++, and is available as open source on <a href="https://github.com/rdfostrich/ostrich" class="mandatory" data-link-text="https:/​/​github.com/​rdfostrich/​ostrich">GitHub</a>.
+Additionally, JavaScript bindings for Node.js have been implemented and are available on <a href="https://www.npmjs.com/package/ostrich-bindings" class="mandatory" data-link-text="https:/​/​www.npmjs.com/​package/​ostrich-​bindings">NPM</a>.
+These JavaScript bindings however lead to slightly slower queries compared to the native C++ API.
+The C++ and JavaScript APIs allow <span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> stores to be queried using VM, <span class='abbreviation' title='Delta materialization'>DM</span> and VQ triple pattern queries with a certain limit and offset.
+Additionally, their count estimates can be retrieved.
+Finally, new dataset versions can be ingested as changesets, i.e.,
+lists of triples that need to be removed and lists of triples that need to be added.</p>
+
+    </section>
+
+  <section id="preliminary_evaluation">
+      <h2>Preliminary Evaluation</h2>
+
+      <p>For our preliminary evaluation, we have used the BEAR-B-hourly dataset from the <a property="http://purl.org/spar/cito/cites" href="https://aic.ai.wu.ac.at/qadlod/docs/semantics16.pdf">BEAR benchmark</a> <a class="reference" href="#ref-9">[9]</a>.
+This dataset contains around 48K triples over 1299 versions, and requires 8,314.86 MB when stored as N-Triples (466.35 gzipped).
+<a href="#results-ostrich-ingestion-size-bearb-hourly">Fig. 1</a> shows the growth of an <span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> store after the ingestion of each consecutive version of this dataset.
+Using <span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span>, this dataset requires only 450.59 MB to be stored, or 187.46 MB without the optimizing indexes.
+Furthermore, a dataset with an average of 17M triples over 10 versions requires 4.48 GB of storage,
+and 3.03 GB if only the essential querying indexes are enabled.
+<span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> requires significantly less storage space than <span class='abbreviation' title='Independent copies'>IC</span> and <span class='abbreviation' title='Timestamp-based'>TB</span> strategies, but more than CB strategies.</p>
+
+      <figure id="results-ostrich-ingestion-size-bearb-hourly">
+<img src="img/results-ostrich-ingestion-size-bearb-hourly.svg" alt="[bear-b-hourly ostrich ingestion sizes]" height="150em" />
+<figcaption>
+          <p><span class="label">Fig. 1:</span> Cumulative <span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> store sizes for each consecutive BEAR-B-hourly version in GB for an increasing number of versions.</p>
+        </figcaption>
+</figure>
+
+      <p>Fig. 2, 3 and 4 show the average query evaluation times for VM, <span class='abbreviation' title='Delta materialization'>DM</span> and VQ triple pattern queries on this BEAR-B-hourly dataset.
+In these figures, the evaluation times of <span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> are compared with versioning systems implemented based on <a property="http://purl.org/spar/cito/cites" href="http://www.websemanticsjournal.org/index.php/ps/article/view/328">HDT</a> <a class="reference" href="#ref-12">[12]</a> and Jena <a class="reference" href="#ref-13">[13]</a>,
+as provided by the BEAR benchmark.
+At the cost of ingestion times that are mostly higher than in alternative solutions,
+<span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> is able to significantly reduce query times for VM, <span class='abbreviation' title='Delta materialization'>DM</span> and VQ triple pattern queries.
+Results have shown that the average query times range between 0.1 and 1 millisecond,
+which is lower than most alternative solutions.
+Only for VM queries on individual HDT copies, <span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> is slightly slower, while it requires less storage space.</p>
+
+      <figure id="results-bearb-hourly-vm-sumary">
+<img src="img/results_bearb-hourly-vm-summary.svg" alt="[bear-b-hourly vm]" height="200em" />
+<figcaption>
+          <p><span class="label">Fig. 2:</span> Median BEAR-B-hourly VM query results for all triple patterns for all versions.</p>
+        </figcaption>
+</figure>
+
+      <figure id="results-bearb-hourly-dm-summary">
+<img src="img/results_bearb-hourly-dm-summary.svg" alt="[bear-b-hourly dm]" height="200em" />
+<figcaption>
+          <p><span class="label">Fig. 3:</span> Median BEAR-B-hourly <span class='abbreviation' title='Delta materialization'>DM</span> query results for all triple patterns from version 0 to all other versions.</p>
+        </figcaption>
+</figure>
+
+      <figure id="results-bearb-hourly-vq-summary">
+<img src="img/results_bearb-hourly-vq-summary.svg" alt="[bear-b-hourly vq]" height="200em" />
+<figcaption>
+          <p><span class="label">Fig. 4:</span> Median BEAR-B-hourly VQ query results for all triple patterns.</p>
+        </figcaption>
+</figure>
+    </section>
+
+  <section id="demonstration-overview">
+      <h2>Demonstration Overview</h2>
+
+      <p>The goal of this demonstration is to show the capabilities of <span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span>.
+This is done using a Web application (<em><span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> Admin</em>) in which an <span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> store can be created, viewed and updated.
+When starting the application, the path to a –possibly empty– <span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> store must be provided.
+This application has several features, including the ability to perform VM, <span class='abbreviation' title='Delta materialization'>DM</span> and VQ queries,
+ingest new versions, and retrieve statistics about the store.
+These features will be elaborated on in the next sections.
+Finally, we introduce two example datasets that can be used to discover the interface.</p>
+
+      <p><span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> Admin is implemented as a Node.js Web application using the <a href="https://expressjs.com/" class="mandatory" data-link-text="https:/​/​expressjs.com/​">Express framework</a>.
+This was done using the <span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> JavaScript bindings for Node.js.
+This application is available on <a href="https://github.com/rdfostrich/ostrich-admin" class="mandatory" data-link-text="https:/​/​github.com/​rdfostrich/​ostrich-​admin">GitHub</a> under an open license.
+A screencast demonstrating the usage of this application can be found on <a href="https://vimeo.com/246792247" class="mandatory" data-link-text="https:/​/​vimeo.com/​246792247">Vimeo</a>.</p>
+
+      <h3 id="query">Query</h3>
+
+      <p><span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> Admin supports visual VM, <span class='abbreviation' title='Delta materialization'>DM</span> and VQ triple pattern queries.
+These are usable by respectively following the <em>Version Materialization</em>, <em>Delta Materialization</em>
+or <em>Version Query</em> links as can be seen in <a href="#demo-query">Fig. 5</a>.
+These pages show a form that corresponds to the <span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> API for these query types.</p>
+
+      <p>For instance, <a href="#demo-query">Fig. 5</a> shows the form for <span class='abbreviation' title='Delta materialization'>DM</span> queries.
+The subject, predicate and object fields are used to provide URIs, literals or variables for the triple pattern query.
+A start and end version can be selected, which will define the versions over which the delta will be retrieved.
+Additionally, offset and limit value can be applied to the triple results.</p>
+
+      <p>Below the form, the triples matching the defined query are shown.
+In the case of <span class='abbreviation' title='Delta materialization'>DM</span> queries, triples are annotated with a “+” or “-“,
+which indicates if they are an addition or deletion with respect to the given changeset.
+Furthermore, the number of results on this page is shown, together with the total count of this query, independent of the limit and offset.
+This total count can either be an exact value, or an estimate if calculating the exact value would take too much time.
+Finally, the query execution time is shown.</p>
+
+      <figure id="demo-query">
+<img src="img/query.png" alt="[<span class='abbreviation' title='Delta materialization'>DM</span> queries]&#8221; />
+<figcaption>
+          <p><span class="label">Fig. 5:</span> Delta Materialization interface for querying the differences between
+two versions by triple pattern with a certain offset and limit.
+The page shows all matching triples annotated with either the addition (+) or deletion symbol (-).
+Additionally, the total number of results and the query duration time is shown.</p>
+        </figcaption>
+</figure>
+
+      <p>Similar pages exist for VM and VQ queries.
+For VM queries, the form does not have a version range, but only a single version field.
+Furthermore, the triple results are not annotated with “+” or “-“.
+For VQ queries, the form has no version fields, but results are annotated with version ranges.</p>
+
+      <h3 id="ingest">Ingest</h3>
+
+      <p>As ingesting new versions is an important feature in any archiving solution,
+<span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> Admin allows changeset-based version ingestion as can be seen in <a href="#demo-ingest">Fig. 6</a>.</p>
+
+      <p>This form has a textbox for additions and deletions.
+This corresponds to the way the <span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> API accepts version ingestion,
+which is done using a stream containing additions and deletions.
+These textboxes accept triples in the Turtle serialization.
+If the user submits the form with a syntax error, an error will be promted to the user,
+explaining the error that should be corrected before ingestion can take place as shown in <a href="#demo-ingest">Fig. 6</a>.</p>
+
+      <p>When ingestion is successful the number of inserted triples will be displayed,
+together with the time it took to insert them.</p>
+
+      <figure id="demo-ingest">
+<img src="img/ingest.png" alt="[Ingest]" />
+<figcaption>
+          <p><span class="label">Fig. 6:</span> Ingesting a new version is done using a changeset form for additions and deletions.
+The form accepts triples in turtle format, and will give user feedback in case invalid triples were provided.</p>
+        </figcaption>
+</figure>
+
+      <h3 id="statistics">Statistics</h3>
+
+      <p>Finally, <span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> Admin allows basic statistics about the current <span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> store to be displayed as shown in <a href="#demo-stats">Fig. 7</a>.</p>
+
+      <p>On the top of this page –and all other pages as well– the path to the currently opened store is shown.
+Next to that, the total number of versions in this store is displayed.
+Finally, the total number of unique triples in this store, and the total size of this store is shown.</p>
+
+      <p>Additionally, this page shows a graph containing the number of triples in each version of the dataset.
+This graph is interactive, and allows the user to hover over each version bar to show the exact number of triples in the selected version.</p>
+
+      <figure id="demo-stats">
+<img src="img/stats.png" alt="[Stats]" />
+<figcaption>
+          <p><span class="label">Fig. 7:</span> The stats page shows an overview of the number of triples in each version.
+The user can hover over the version bars to see the exact number of triples in the top-left side of the graph.</p>
+        </figcaption>
+</figure>
+
+      <h3 id="example-datasets">Example Datasets</h3>
+
+      <p>For our demonstration, we provide two example datasets that can be used to load into <span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> admin.
+All of these examples are <a href="https://linkedsoftwaredependencies.org/raw/ostrich/datasets/">publicly available</a>{.mandatory}.</p>
+
+      <h4 id="library">Library</h4>
+
+      <p>The first dataset is a very small synthetic dataset about the availability of books in a library.
+The goal of this dataset is to explain the concept of changesets using books that are only available at specific moments in the library.
+In order to make it easily understandable, this dataset has only four versions, and 11 books that are available in specific versions of the dataset.</p>
+
+      <h4 id="dbpedia-live">DBpedia Live</h4>
+
+      <p>A larger real-world dataset based on DBpedia Live <a class="reference" href="#ref-14">[14]</a> contains more than 48K unique triples over 89 versions.
+This dataset has been derived from the <a property="http://purl.org/spar/cito/cites" href="https://aic.ai.wu.ac.at/qadlod/docs/semantics16.pdf">BEAR <span class='abbreviation' title='Resource Description Framework'>RDF</span> archiving benchmark</a> <a class="reference" href="#ref-9">[9]</a>.
+It contains 100 most volatile resources from DB­pedia Live over the course of three months with an hourly granularity.</p>
+
+    </section>
+
+  <section id="conclusions">
+      <h2>Conclusions</h2>
+
+      <p><span class='abbreviation' title='Resource Description Framework'>RDF</span> archiving has been an active area of research over the last couple of years.
+<span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> is storage and querying system for <span class='abbreviation' title='Resource Description Framework'>RDF</span> archives that allows various kinds of versioned queries.
+Flexible <span class='abbreviation' title='Resource Description Framework'>RDF</span> versioning systems lower the barrier towards historical analysis over datasets that evolve over time,
+such as biomedical patient information or certain taxonomies.
+Furthermore, these systems make it possible to efficiently archive such datasets.</p>
+
+      <p>In this article, we introduce <span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> Admin,
+which is a Web application in which versioned <span class='abbreviation' title='Resource Description Framework'>RDF</span> datasets can be managed.
+Two example datasets are provided, using which the capabilities of <span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> can be discovered.</p>
+
+      <p>In the future, we will continue improving the performance of <span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span>,
+and do an extensive performance evaluation.
+<span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> Admin will be kept up-to-date with the functionality of <span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span>,
+so that <span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> datasets can be discovered and managed at a high-level using this Web application,
+without having to use the programmatic API for this.</p>
+
+    </section>
+
+</main>
+
+<footer>
+  <section id="acknowledgements">
+      <h2>Acknowledgements</h2>
+
+      <p>The described research activities were funded by Ghent University, imec,
+Flanders Innovation &amp; Entrepreneurship (AIO), and the European Union.
+Ruben Verborgh is a postdoctoral fellow of the Research Foundation – Flanders.</p>
+
+    </section>
+
+  <section id="biographies">
+      <h2>Biographies</h2>
+
+      <p><img src="img/ruben_taelman.jpeg" alt="Ruben Taelman" class="biography_pic" /></p>
+
+      <p><strong>Ruben Taelman</strong> is a PhD student at IDLab, Ghent University – imec, Belgium.
+His research concerns the server and client trade-offs for Linked Data publication and querying,
+with a particular focus on dynamic data, such as streams and versioning.</p>
+
+      <p class="clear" />
+
+      <p><img src="img/ruben_verborgh.jpeg" alt="Ruben Verborgh" class="biography_pic" /></p>
+
+      <p><strong>Ruben Verborgh</strong> is a researcher in semantic hypermedia at Ghent University – imec, Belgium and a postdoctoral fellow of the Research Foundation Flanders.
+He explores the connection between Semantic Web technologies and the Web’s architectural properties, with the ultimate goal of building more intelligent clients.
+Along the way, he became fascinated by Linked Data, REST/hypermedia, Web APIs, and related technologies.</p>
+
+      <p class="clear" />
+
+    </section>
+
+<section id="references">
+<h2>References</h2>
+<dl class="references">
+  <dt id="ref-1">[1]</dt>
+  <dd>Bizer, C., Heath, T., Berners-Lee, T.: Linked Data - the story so far. Semantic Services, Interoperability and Web Applications: Emerging Concepts. 205–227 (2009).</dd>
+  <dt id="ref-2">[2]</dt>
+  <dd>Umbrich, J., Decker, S., Hausenblas, M., Polleres, A., Hogan, A.: Towards dataset dynamics: Change frequency of Linked Open Data sources. 3rd International Workshop on Linked Data on the Web (LDOW). (2010).</dd>
+  <dt id="ref-3">[3]</dt>
+  <dd>Cyganiak, R., Wood, D., Lanthaler, M.: <span class='abbreviation' title='Resource Description Framework'>RDF</span> 1.1: Concepts and Abstract Syntax. W3C, <a href="http://www.w3.org/TR/2014/REC-rdf11-concepts-20140225/">http:/​/​www.w3.org/TR/2014/REC-rdf11-concepts-20140225/</a> (2014).</dd>
+  <dt id="ref-4">[4]</dt>
+  <dd>Vander Sande, M., Colpaert, P., Verborgh, R., Coppens, S., Mannens, E., Walle, R. Van de: R&amp;Wbase: git for triples. In: Proceedings of the 6th Workshop on Linked Data on the Web (2013).</dd>
+  <dt id="ref-5">[5]</dt>
+  <dd>Neumann, T., Weikum, G.: x-<span class='abbreviation' title='Resource Description Framework'>RDF</span>-3X: fast querying, high update rates, and consistency for <span class='abbreviation' title='Resource Description Framework'>RDF</span> databases. Proceedings of the VLDB Endowment. 3, 256–263 (2010).</dd>
+  <dt id="ref-6">[6]</dt>
+  <dd>Volkel, M., Winkler, W., Sure, Y., Kruk, S.R., Synak, M.: Semversion: A versioning system for <span class='abbreviation' title='Resource Description Framework'>RDF</span> and ontologies. In: Second European Semantic Web Conference, ESWC 2005, Heraklion, Crete, Greece, May 29–June 1, 2005. Proceedings (2005).</dd>
+  <dt id="ref-7">[7]</dt>
+  <dd>Cerdeira-Pena, A., Farina, A., Fernández, J.D., Martı́nez-Prieto Miguel A: Self-indexing <span class='abbreviation' title='Resource Description Framework'>RDF</span> archives. In: Data Compression Conference (DCC), 2016. pp. 526–535. IEEE (2016).</dd>
+  <dt id="ref-8">[8]</dt>
+  <dd>Taelman, R., Vander Sande, M., Verborgh, R., Mannens, E.: Versioned Triple Pattern Fragments: A Low-cost Linked Data Interface Feature for Web Archives. In: Proceedings of the 3rd Workshop on Managing the Evolution and Preservation of the Data Web (2017).</dd>
+  <dt id="ref-9">[9]</dt>
+  <dd>Fernández, J.D., Umbrich, J., Polleres, A., Knuth, M.: Evaluating Query and Storage Strategies for <span class='abbreviation' title='Resource Description Framework'>RDF</span> Archives. In: Proceedings of the 12th International Conference on Semantic Systems. ACM (2016).</dd>
+  <dt id="ref-10">[10]</dt>
+  <dd>Fernández, J.D., Polleres, A., Umbrich, J.: Towards efficient archiving of Dynamic Linked Open Data. In: Debattista, J., d’Aquin, M., and Lange, C. (eds.) Proceedings of te First DIACHRON Workshop on Managing the Evolution and Preservation of the Data Web. pp. 34–49 (2015).</dd>
+  <dt id="ref-11">[11]</dt>
+  <dd>Meinhardt, P., Knuth, M., Sack, H.: TailR: a platform for preserving history on the web of data. In: Proceedings of the 11th International Conference on Semantic Systems. pp. 57–64. ACM (2015).</dd>
+  <dt id="ref-12">[12]</dt>
+  <dd>Fernández, J.D., Martínez-Prieto, M.A., Gutiérrez, C., Polleres, A., Arias, M.: Binary <span class='abbreviation' title='Resource Description Framework'>RDF</span> Representation for Publication and Exchange (HDT). Web Semantics: Science, Services and Agents on the World Wide Web. 19, 22–41 (2013).</dd>
+  <dt id="ref-13">[13]</dt>
+  <dd>McBride, B.: Jena: A semantic web toolkit. IEEE Internet computing. 6, 55–59 (2002).</dd>
+  <dt id="ref-14">[14]</dt>
+  <dd>Morsey, M., Lehmann, J., Auer, S., Stadler, C., Hellmann, S.: DBpedia and the live extraction of structured data from wikipedia. Program. 46, 157–181 (2012).</dd>
+</dl>
+</section>
+</footer>
+
+</div>
+
+
+
+</body>
+</html>
