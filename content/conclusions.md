@@ -6,10 +6,13 @@ OSTRICH is storage and querying system for RDF archives that allows various kind
 Flexible RDF versioning systems lower the barrier towards historical analysis over datasets that evolve over time,
 such as biomedical patient information or certain taxonomies.
 Furthermore, these systems make it possible to efficiently archive such datasets.
+<span class="comment" data-author="RV">Nah, go beyond! What can people do now that they have OSTRICH that they couldn't before?</span>
 
+<del class="comment">
 In this article, we introduce OSTRICH Admin,
 which is a Web application in which versioned RDF datasets can be managed.
 Two example datasets are provided, using which the capabilities of OSTRICH can be discovered.
+</del>
 
 In the future, we will continue improving the performance of OSTRICH,
 and do an extensive performance evaluation.

@@ -120,6 +120,7 @@ main, #appendix {
 
   // Sections
   h2 {
+    clear: left;
     font-size: 1.5em;
     font-weight: bold;
     margin: 1.5em 0 .5em;
@@ -242,6 +243,7 @@ main, #appendix {
 
 footer {
   h2 {
+    clear: left;
     font-size: 1.5em;
     font-weight: bold;
     margin: 1em 0 .5em;

@@ -1,3 +1,11 @@
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
 @import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono');
 figure {
   img {
@@ -80,8 +88,12 @@ var {
   clear: both;
 }
 
-.biography_pic {
-  float: left;
-  height: 8em;
-  margin: 5px;
+.biography {
+  clear: left;
+
+  img {
+    float: left;
+    height: 8em;
+    margin: 0 1em 1em 0;
+  }
 }
