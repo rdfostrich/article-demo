@@ -1,18 +1,17 @@
+<div class="pagebreak"></div>
+
 ## Conclusions
 {:#conclusions}
 
 RDF archiving has been an active area of research over the last couple of years.
 OSTRICH is storage and querying system for RDF archives that supports various kinds of versioned queries.
-Flexible RDF versioning systems lower the barrier towards historical analysis over datasets that evolve over time,
+With OSTRICH, versioned datasets can be stored efficiently,
+while at the same time enabling efficient support for versioned queries.
+When OSTRICH is combined with techniques such as Triple Pattern Fragments,
+versioned Linked Datasets can be published at a low cost,
+and complex SPARQL queries can be evaluated _in_, _between_, and _over_ the different versions.
+This lower the barrier towards historical analysis over datasets that evolve over time,
 such as biomedical patient information or certain taxonomies.
-Furthermore, these systems make it possible to efficiently archive such datasets.
-<span class="comment" data-author="RV">Nah, go beyond! What can people do now that they have OSTRICH that they couldn't before?</span>
-
-<del class="comment">
-In this article, we introduce OSTRICH Admin,
-which is a Web application in which versioned RDF datasets can be managed.
-Two example datasets are provided, using which the capabilities of OSTRICH can be discovered.
-</del>
 
 In the future, we will continue improving the performance of OSTRICH,
 and do an extensive performance evaluation.

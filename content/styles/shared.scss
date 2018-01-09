@@ -90,10 +90,11 @@ var {
 
 .biography {
   clear: left;
+  display: block;
 
   img {
     float: left;
-    height: 8em;
+    height: 10em;
     margin: 0 1em 1em 0;
   }
 }
