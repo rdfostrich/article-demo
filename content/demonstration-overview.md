@@ -26,18 +26,18 @@ These pages show a form that corresponds to the OSTRICH API for these query type
 For instance, [](#demo-query) shows the form for DM queries.
 The subject, predicate and object fields are used to provide URIs, literals or variables for the triple pattern query.
 A start and end version can be selected, which will define the versions over which the delta will be retrieved.
-Additionally, offset and limit value can be applied to the triple results.
+Additionally, offset and limit values can be applied to the triple results.
 
 Below the form, the triples matching the defined query are shown.
 In the case of DM queries, triples are annotated with a “+” or “_”,
-which indicates if they are an addition or deletion with respect to the given changeset.
+which indicates if they are respectively an addition or deletion with respect to the given changeset.
 Furthermore, the number of results on this page is shown, together with the total count of this query, independent of the limit and offset.
 This total count can either be an _exact value_, or an _estimate_ if calculating the exact value would take too much time.
 Finally, the query execution time is shown.
 <span class="comment" data-author="RV">Related to my previous comment: maybe we shouldn't call this <q>query</q> but <q>index access</q> or similar, for clarity.</span>
 
 <figure id="demo-query">
-<img src="img/query.png" alt="[DM queries]">
+<img src="img/query.png" alt="[Delta Materialization queries]">
 <figcaption markdown="block">
 Delta Materialization interface for querying the differences between
 two versions by triple pattern with a certain offset and limit.
@@ -48,14 +48,18 @@ Additionally, the total number of results and the query duration time is shown.
 
 Similar pages exist for VM and VQ queries.
 For VM queries, the form does not have a version range, but only a single version field.
+<<<<<<< Updated upstream
 <del class="comment">
 Furthermore, the triple results are not annotated with “+” or “–”.
 </del>
+=======
+Furthermore, the triple results are not annotated with '+' or '-'.
+>>>>>>> Stashed changes
 For VQ queries, the form has no version fields, but results are annotated with version ranges.
 
 ### Ingest
 
-As ingesting new versions is an important feature in any archiving solution,
+As ingesting new versions is an important feature in archiving solutions,
 OSTRICH Admin allows changeset-based version ingestion as can be seen in [](#demo-ingest).
 
 This form has a textbox for additions and deletions.
@@ -67,7 +71,7 @@ If the user submits the form with a syntax error, an error will be prompted to t
 explaining the error that should be corrected before ingestion can take place as shown in [](#demo-ingest).
 </del>
 
-When ingestion is successful the number of inserted triples will be displayed,
+When ingestion is successful, the number of inserted triples will be displayed,
 together with the time it took to insert them.
 
 <figure id="demo-ingest">
@@ -118,4 +122,4 @@ In order to make it easily understandable, this dataset has only four versions, 
 
 A larger real-world dataset based on [DBpedia Live](cite:cites dbpedialive) contains more than 48K unique triples over 89 versions.
 This dataset has been derived from the [BEAR RDF archiving benchmark](cite:cites bear).
-It contains 100 most volatile resources from DB­pedia Live over the course of three months with an hourly granularity.
+It contains the 100 most volatile resources from DB­pedia Live over the course of three months with an hourly granularity.

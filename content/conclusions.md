@@ -2,7 +2,7 @@
 {:#conclusions}
 
 RDF archiving has been an active area of research over the last couple of years.
-OSTRICH is storage and querying system for RDF archives that allows various kinds of versioned queries.
+OSTRICH is storage and querying system for RDF archives that supports various kinds of versioned queries.
 Flexible RDF versioning systems lower the barrier towards historical analysis over datasets that evolve over time,
 such as biomedical patient information or certain taxonomies.
 Furthermore, these systems make it possible to efficiently archive such datasets.

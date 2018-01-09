@@ -10,7 +10,7 @@ Furthermore, separate snapshots can make it harder to execute queries for perfor
 Over the last couple of years, [RDF archiving has been an active area of research](cite:cites rwbase, xrdf3x, semversion, selfindexingarchives, vtpf).
 Fernández et al. define an [_RDF archive_](cite:cites bear) as a set of version-annotated triples,
 where a _version-annotated triple_ is an RDF triple that is annotated with a label representing the version in which this triple holds.
-Three [three strategies](cite:cites archiving) were identified on how RDF archives can be stored:
+Three [strategies](cite:cites archiving) were identified on how RDF archives can be stored:
 
 1. The **Independent Copies (IC)** approach creates separate instantiations of datasets for
 each change or set of changes.
