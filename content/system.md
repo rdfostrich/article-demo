@@ -15,7 +15,7 @@ such as the client-side [Triple Pattern Fragments engine](cite:cites ldf).
 Internally, OSTRICH stores a versioned dataset in a _hybrid IC-CB-TB_ way, using multiple indexes for supporting the different query types.
 The initial version of a dataset is stored as a fully materialized and immutable snapshot.
 This snapshot is stored as an [HDT](cite:cites hdt) file.
-HDT a binary RDF representation that is highly compressed and provides indexing structures
+HDT a binary RDF representation that is highly compressed, and provides indexing structures
 that enable efficient querying for triple pattern queries and count estimation.
 All other versions are stored as _changesets_,
 i.e., lists of triples that need to be removed and lists of triples that need to be added.
