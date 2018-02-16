@@ -5,8 +5,7 @@ In this section, we give a brief overview of OSTRICH, the system on which this d
 
 OSTRICH uses a _versioned triple store_ format
 that allows VM, DM and VQ triple pattern queries to be resolved efficiently.
-Furthermore, these queries return a triple stream, so that consumers can start using these triples as soon as each one arrives.
-These triple streams support efficient offsets.
+Furthermore, these queries return a triple stream---triples can be consumed as they arrive, which supports efficient offsets.
 As certain systems, such as SPARQL query engines, typically optimize triple pattern join orders using estimated triple counts,
 OSTRICH provides efficient count estimation for VM, DM and VQ queries.
 Triple pattern queries, together with count estimation, form the basis for more sophisticated RDF/SPARQL query engines,
@@ -14,11 +13,12 @@ such as the client-side [Triple Pattern Fragments engine](cite:cites ldf).
 
 Internally, OSTRICH stores a versioned dataset in a _hybrid IC-CB-TB_ way, using multiple indexes for supporting the different query types.
 The initial version of a dataset is stored as a fully materialized and immutable snapshot.
-This snapshot is stored as an [HDT](cite:cites hdt) file.
-HDT a binary RDF representation that is highly compressed, and provides indexing structures
-that enable efficient querying for triple pattern queries and count estimation.
-All other versions are stored as _changesets_,
+This snapshot is stored as an [HDT](cite:cites hdt) file, which is a highly compressed, binary RDF representation.
+HDT also provides indexes
+that enable the efficient execution of triple pattern queries and count estimation.
+All other versions are _changesets_,
 i.e., lists of triples that need to be removed and lists of triples that need to be added.
+Changesets are stored in a custom indexing structure.
 These changesets are relative to the initial version, but merged in a timestamp-based manner to reduce redundancies between each version.
 
 OSTRICH is implemented in C++, and is available as open source on [GitHub](https://github.com/rdfostrich/ostrich){:.mandatory}.
