@@ -7,7 +7,7 @@ This dataset contains 48.000 unique triples over 1.299 versions,
 and requires 8,314.86 MB when stored as N-Triples in changesets (466.35 MB gzipped).
 [](#results-ostrich-ingestion-size-bearb-hourly) shows the growth of an OSTRICH store after the ingestion of each consecutive version of this dataset.
 Using OSTRICH, this dataset requires only 450.59 MB to be stored, or 187.46 MB without the optimizing indexes.
-On average, this is only 5,2% of IC strategies, 4,8% of TB strategies, but 514% of CB stategies.
+Compared to other systems in the BEAR benchmark, this is on average only 5,2% of IC strategies, 4,8% of TB strategies, but 514% of CB stategies.
 Furthermore, a less volatile dataset with an average of 17M triples over 10 versions requires 4.48 GB of storage with OSTRICH,
 and 3.03 GB if only the essential querying indexes are enabled.
 With OSTRICH, this dataset takes on average 35% of IC strategies, 10% of TB strategies, and 66% of CB stategies.
