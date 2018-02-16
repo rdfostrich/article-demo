@@ -6,7 +6,7 @@ In this section, we give a brief overview of OSTRICH, the system on which this d
 OSTRICH uses a _versioned triple store_ format
 that allows VM, DM and VQ triple pattern queries to be resolved efficiently.
 Furthermore, these queries return a triple stream, so that consumers can start using these triples as soon as each one arrives.
-These triple streams support random-access, using which consumers can easily and efficiently apply an offset.
+These triple streams support efficient offsets.
 As certain systems, such as SPARQL query engines, typically optimize triple pattern join orders using estimated triple counts,
 OSTRICH provides efficient count estimation for VM, DM and VQ queries.
 Triple pattern queries, together with count estimation, form the basis for more sophisticated RDF/SPARQL query engines,
