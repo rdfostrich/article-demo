@@ -126,8 +126,7 @@ Finally, we discuss our conclusions and opportunities for future work in <a href
 
       <p><span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> uses a <em>versioned triple store</em> format
 that allows VM, <span class='abbreviation' title='Delta materialization'>DM</span> and VQ triple pattern queries to be resolved efficiently.
-Furthermore, these queries return a triple stream, so that consumers can start using these triples as soon as each one arrives.
-These triple streams support efficient offsets.
+Furthermore, these queries return a triple stream—triples can be consumed as they arrive, which supports efficient offsets.
 As certain systems, such as <span class='abbreviation' title='SPARQL Procotol and RDF Query Language'>SPARQL</span> query engines, typically optimize triple pattern join orders using estimated triple counts,
 <span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> provides efficient count estimation for VM, <span class='abbreviation' title='Delta materialization'>DM</span> and VQ queries.
 Triple pattern queries, together with count estimation, form the basis for more sophisticated <span class='abbreviation' title='Resource Description Framework'>RDF</span>/<span class='abbreviation' title='SPARQL Procotol and RDF Query Language'>SPARQL</span> query engines,
@@ -135,11 +134,12 @@ such as the client-side <span property="schema:citation http://purl.org/spar/cit
 
       <p>Internally, <span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> stores a versioned dataset in a <em>hybrid <span class='abbreviation' title='Independent copies'>IC</span>-CB-<span class='abbreviation' title='Timestamp-based'>TB</span></em> way, using multiple indexes for supporting the different query types.
 The initial version of a dataset is stored as a fully materialized and immutable snapshot.
-This snapshot is stored as an <a property="schema:citation http://purl.org/spar/cito/cites" href="http://www.websemanticsjournal.org/index.php/ps/article/view/328">HDT</a> <a href="#ref-13" class="reference">[13]</a> file.
-HDT a binary <span class='abbreviation' title='Resource Description Framework'>RDF</span> representation that is highly compressed, and provides indexing structures
-that enable efficient querying for triple pattern queries and count estimation.
-All other versions are stored as <em>changesets</em>,
+This snapshot is stored as an <a property="schema:citation http://purl.org/spar/cito/cites" href="http://www.websemanticsjournal.org/index.php/ps/article/view/328">HDT</a> <a href="#ref-13" class="reference">[13]</a> file, which is a highly compressed, binary <span class='abbreviation' title='Resource Description Framework'>RDF</span> representation.
+HDT also provides indexes
+that enable the efficient execution of triple pattern queries and count estimation.
+All other versions are <em>changesets</em>,
 i.e., lists of triples that need to be removed and lists of triples that need to be added.
+Changesets are stored in a custom indexing structure.
 These changesets are relative to the initial version, but merged in a timestamp-based manner to reduce redundancies between each version.</p>
 
       <p><span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> is implemented in C++, and is available as open source on <a href="https://github.com/rdfostrich/ostrich" class="mandatory" data-link-text="https:/​/​github.com/​rdfostrich/​ostrich">GitHub</a>.
