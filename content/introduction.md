@@ -27,6 +27,11 @@ Example: _Which books were returned or taken from the library between yesterday 
 3. **Version query (VQ)** annotates query results with the versions in which they are valid.
 Example: _At what times was book X present in the library?_
 
+<span class="placeholder printonly">
+<span style="display: block; height: 5em;"></span>
+<!-- This is a dummy placeholder for the ACM first page footnote -->
+</span>
+
 Each of these storage strategies have their advantages and disadvantages in combination with certain query atoms.
 For instance, IC works well in combination with VM queries because it stores each version separately, so it can query each version separately as well.
 However, IC is less efficient for DM queries because it requires the differences between two dataset versions for the given query to be generated on-the-fly.

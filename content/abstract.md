@@ -15,4 +15,18 @@ ingest new versions, and retrieve summarizing statistics.
 <!-- Conclusion   -->
 <!-- Perspectives -->
 
-<span id="keywords"><span class="title">Keywords</span> Linked Data, RDF, versioning, OSTRICH, triple store</span>
+<span id="keywords"><span class="title">Keywords</span> Linked Data; RDF; versioning; OSTRICH; triple store</span>
+
+
+<span class="printonly firstpagefooter">
+<span class="footnotecopyright">
+------------------------------------------------------------------<br />
+This paper is published under the Creative Commons Attribution 4.0 International (CC-BY 4.0) license.
+Authors reserve their rights to disseminate the work on their personal and corporate Web sites with the appropriate attribution.<br />
+<span style="font-style:italic">WWW 2018, April 23-27, 2018, Lyon, France</span><br />
+©2018  IW3C2 (International World Wide Web Conference Committee),
+published under Creative Commons CC BY 4.0 License.<br />
+ACM 978-1-4503-5640-4/18/04.<br />
+DOI: http://dx.doi.org/10.1145/3184558.3186960
+</span>
+</span>
