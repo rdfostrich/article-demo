@@ -13,6 +13,16 @@ figure {
   }
 }
 
+@font-face {
+  font-family: 'Linux Biolinum';
+  src: url('/fonts/LinBiolinum_R.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+.printfont {
+  font-family: "Linux Biolinum", sans-serif;
+}
+
 .todo {
   color: red;
   &::before {

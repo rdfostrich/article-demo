@@ -6,14 +6,14 @@ title: "OSTRICH: Versioned Random-Access Triple Store"
 <div id="repeating-title"><%= @item[:title] %></div>
 
 {:#authors}
-- <%= person 'Ruben Taelman', 'http://www.rubensworks.net/', 'http://www.rubensworks.net/#me' %>
-- <%= person 'Miel Vander Sande', '#', 'https://data.verborgh.org/people/miel_vander_sande' %>
-- <%= person 'Ruben Verborgh', 'https://ruben.verborgh.org/', 'https://ruben.verborgh.org/profile/#me' %>
+- <%= person 'Ruben Taelman', 'http://www.rubensworks.net/', 'http://www.rubensworks.net/#me', 'IDLab — Ghent University — imec', 'ruben.taelman@ugent.be' %>
+- <%= person 'Miel Vander Sande', '#', 'https://data.verborgh.org/people/miel_vander_sande', 'IDLab, Ghent University — imec', 'miel.vandersande@ugent.be' %>
+- <%= person 'Ruben Verborgh', 'https://ruben.verborgh.org/', 'https://ruben.verborgh.org/profile/#me', 'IDLab — Ghent University — imec', 'ruben.verborgh@ugent.be' %>
 
 {:#affiliations}
 - {:#idlab} IDLab,
             Department of Electronics and Information Systems,
-            Ghent University – imec
+            Ghent University – imec
 
 <section class="actions" markdown="block">
 ## Notifications and annotations
@@ -28,6 +28,12 @@ title: "OSTRICH: Versioned Random-Access Triple Store"
 </section>
 
 </header>
+
+<!-- Hack to make our custom font load in print-mode -->
+<!-- https://stackoverflow.com/questions/39364259/chrome-print-preview-doesnt-load-media-only-print-font-face -->
+<span class='printfont'> </span>
+
+<div class="double-column">
 
 <div id="content">
   <%= section 'abstract' %>
@@ -44,5 +50,12 @@ title: "OSTRICH: Versioned Random-Access Triple Store"
   <%= section 'acknowledgements'  %>
   <%= section 'biographies'  %>
 </footer>
+
+<span class="placeholder printonly">
+<span style="display: block; height: 35em;"></span>
+<!-- This is a dummy placeholder for forcing the references in a separate column -->
+</span>
+
+</div>
 
 </div>

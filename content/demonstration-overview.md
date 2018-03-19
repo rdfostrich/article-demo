@@ -14,6 +14,8 @@ This was done using the OSTRICH JavaScript bindings for Node.js.
 This application is available on [GitHub](https://github.com/rdfostrich/ostrich-admin){:.mandatory} under an open license.
 A screencast demonstrating the usage of this application can be found on [Vimeo](https://vimeo.com/246792247){:.mandatory}.
 
+<div class="pagebreak"></div>
+
 ### Query
 
 OSTRICH Admin supports visual VM, DM and VQ triple pattern queries.
