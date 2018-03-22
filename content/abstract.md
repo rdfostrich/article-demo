@@ -25,7 +25,6 @@ Taelman, R. and Vander Sande, M. and Verborgh, R. 2017. OSTRICH: Versioned Rand
 
 <span class="printonly firstpagefooter">
 <span class="footnotecopyright">
-------------------------------------------------------------------<br />
 This paper is published under the Creative Commons Attribution 4.0 International (CC-BY 4.0) license.
 Authors reserve their rights to disseminate the work on their personal and corporate Web sites with the appropriate attribution.<br />
 <span style="font-style:italic">WWW 2018, April 23-27, 2018, Lyon, France</span><br />
