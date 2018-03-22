@@ -31,6 +31,12 @@ figure {
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'Linux Biolinum';
+  src: url('/fonts/LinBiolinum_RB.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
 .printfont1 {
   font-family: "Linux Libertine", sans-serif;
 }
@@ -40,6 +46,10 @@ figure {
 }
 .printfont3 {
   font-family: "Linux Biolinum", sans-serif;
+}
+.printfont4 {
+  font-family: "Linux Biolinum", sans-serif;
+  font-weight: bold;
 }
 
 .todo {
