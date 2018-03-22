@@ -48,9 +48,12 @@
 
 </header>
 
-<!-- Hack to make our custom font load in print-mode -->
+<!-- Hack to make our custom fonts load in print-mode -->
 <!-- https://stackoverflow.com/questions/39364259/chrome-print-preview-doesnt-load-media-only-print-font-face -->
-<p><span class="printfont"> </span></p>
+<p><span class="printfont1"> </span>
+<span class="printfont2"> </span>
+<span class="printfont3"> </span>
+<span class="printfont4"> </span></p>
 
 <div class="double-column">
 
@@ -83,7 +86,6 @@ Taelman, R. and Vander Sande, M. and Verborgh, R. 2017. <span class='abbreviatio
 
       <p><span class="printonly firstpagefooter">
 <span class="footnotecopyright">
-——————————————————————<br />
 This paper is published under the Creative Commons Attribution 4.0 International (CC-BY 4.0) license.
 Authors reserve their rights to disseminate the work on their personal and corporate Web sites with the appropriate attribution.<br />
 <span style="font-style:italic">WWW 2018, April 23-27, 2018, Lyon, France</span><br />
@@ -126,19 +128,18 @@ In this work, we consider the following query atoms:</p>
           <li><strong>Version materialization (VM)</strong> retrieves data using queries targeted at a single version.
 Example: <em>Which books were present in the library yesterday?</em></li>
           <li><strong>Delta materialization (<span class='abbreviation' title='Delta materialization'>DM</span>)</strong> retrieves query result change sets between two versions.
-Example: <em>Which books were returned or taken from the library between yesterday and now?</em>
+Example: <em>Which books were returned or taken from the library between yesterday and now?</em></li>
+          <li><strong>Version query (VQ)</strong> annotates query results with the versions in which they are valid.
+Example: <em>At what times was book X present in the library?</em>
 <span class="placeholder printonly">
 <span style="display: block; height: 9em;"></span>
 <!-- This is a dummy placeholder for the ACM first page footnote -->
-</span></li>
-          <li><strong>Version query (VQ)</strong> annotates query results with the versions in which they are valid.
-Example: <em>At what times was book X present in the library?</em></li>
-        </ol>
-
-        <p>Each of these storage strategies have their advantages and disadvantages in combination with certain query atoms.
+</span>
+Each of these storage strategies have their advantages and disadvantages in combination with certain query atoms.
 For instance, <span class='abbreviation' title='Independent copies'>IC</span> works well in combination with VM queries because it stores each version separately, so it can query each version separately as well.
 However, <span class='abbreviation' title='Independent copies'>IC</span> is less efficient for <span class='abbreviation' title='Delta materialization'>DM</span> queries because it requires the differences between two dataset versions for the given query to be generated on-the-fly.
-Hybrid storage strategies, such as applied by TailR <a href="#ref-11" class="reference">[11]</a>, can however provide different trade-offs between these strategies.</p>
+Hybrid storage strategies, such as applied by TailR <a href="#ref-11" class="reference">[11]</a>, can however provide different trade-offs between these strategies.</li>
+        </ol>
 
         <p>In this work, we describe and demonstrate <em><span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span></em>, which is a hybrid <span class='abbreviation' title='Independent copies'>IC</span>-CB-<span class='abbreviation' title='Timestamp-based'>TB</span> storage technique,
 that offers efficient VM, <span class='abbreviation' title='Delta materialization'>DM</span> and VQ triple pattern query support.
@@ -405,6 +406,8 @@ In that regard, he executed numerous projects in Open Data legislation, digital 
 
       </section>
 
+  <span style="display: block; height: 5em;"></span>
+  <!-- This is a dummy placeholder for forcing the references in a separate column -->
 <section id="references">
 <h2>References</h2>
 <dl class="references">
@@ -443,7 +446,7 @@ In that regard, he executed numerous projects in Open Data legislation, digital 
 </footer>
 
 <span class="placeholder printonly">
-<span style="display: block; height: 35em;"></span>
+<span style="display: block; height: 30em;"></span>
 <!-- This is a dummy placeholder for forcing the references in a separate column -->
 </span>
 
