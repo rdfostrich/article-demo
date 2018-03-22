@@ -78,12 +78,6 @@ class MarkupFilter < Nanoc::Filter
     
     if references
       content[references] = ''
-
-      # Add spans to identify reference id
-      references.gsub! %r{(<dt[^>]*>)\[([0-9]*)\]*(</dt>)} do |match|
-        %{#{$1}[<span class="reference-number">#{$2}</span>]#{$3}}
-      end
-
       content['</footer>'] = "<section>\n" + references + "\n</section>\n</footer>"
     end
   end
