@@ -7,14 +7,12 @@ When starting the application, the path to a---possibly empty---OSTRICH store mu
 This application has several features, including the ability to perform VM, DM and VQ queries,
 ingest new versions, and retrieve statistics about the store.
 These features will be elaborated on in the next sections.
-Finally, we introduce two example datasets that can be used to discover the interface.
+Finally, we introduce two example datasets to discover the interface.
 
 OSTRICH Admin is implemented as a Node.js Web application using the [Express framework](https://expressjs.com/){:.mandatory}.
 This was done using the OSTRICH JavaScript bindings for Node.js.
 This application is available on [GitHub](https://github.com/rdfostrich/ostrich-admin){:.mandatory} under an open license.
 A screencast demonstrating the usage of this application can be found on [Vimeo](https://vimeo.com/246792247){:.mandatory}.
-
-<div class="pagebreak"></div>
 
 ### Query
 
