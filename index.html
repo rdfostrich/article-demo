@@ -126,20 +126,21 @@ In this work, we consider the following query atoms:</p>
 
         <ol>
           <li><strong>Version materialization (VM)</strong> retrieves data using queries targeted at a single version.
-Example: <em>Which books were present in the library yesterday?</em></li>
-          <li><strong>Delta materialization (<span class='abbreviation' title='Delta materialization'>DM</span>)</strong> retrieves query result change sets between two versions.
-Example: <em>Which books were returned or taken from the library between yesterday and now?</em></li>
-          <li><strong>Version query (VQ)</strong> annotates query results with the versions in which they are valid.
-Example: <em>At what times was book X present in the library?</em>
+Example: <em>Which books were present in the library yesterday?</em>
 <span class="placeholder printonly">
 <span style="display: block; height: 9em;"></span>
 <!-- This is a dummy placeholder for the ACM first page footnote -->
-</span>
-Each of these storage strategies have their advantages and disadvantages in combination with certain query atoms.
+</span></li>
+          <li><strong>Delta materialization (<span class='abbreviation' title='Delta materialization'>DM</span>)</strong> retrieves query result change sets between two versions.
+Example: <em>Which books were returned or taken from the library between yesterday and now?</em></li>
+          <li><strong>Version query (VQ)</strong> annotates query results with the versions in which they are valid.
+Example: <em>At what times was book X present in the library?</em></li>
+        </ol>
+
+        <p>Each of these storage strategies have their advantages and disadvantages in combination with certain query atoms.
 For instance, <span class='abbreviation' title='Independent copies'>IC</span> works well in combination with VM queries because it stores each version separately, so it can query each version separately as well.
 However, <span class='abbreviation' title='Independent copies'>IC</span> is less efficient for <span class='abbreviation' title='Delta materialization'>DM</span> queries because it requires the differences between two dataset versions for the given query to be generated on-the-fly.
-Hybrid storage strategies, such as applied by TailR <a href="#ref-11" class="reference">[11]</a>, can however provide different trade-offs between these strategies.</li>
-        </ol>
+Hybrid storage strategies, such as applied by TailR <a href="#ref-11" class="reference">[11]</a>, can however provide different trade-offs between these strategies.</p>
 
         <p>In this work, we describe and demonstrate <em><span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span></em>, which is a hybrid <span class='abbreviation' title='Independent copies'>IC</span>-CB-<span class='abbreviation' title='Timestamp-based'>TB</span> storage technique,
 that offers efficient VM, <span class='abbreviation' title='Delta materialization'>DM</span> and VQ triple pattern query support.
@@ -253,14 +254,12 @@ When starting the application, the path to a—possibly empty—<span class='abb
 This application has several features, including the ability to perform VM, <span class='abbreviation' title='Delta materialization'>DM</span> and VQ queries,
 ingest new versions, and retrieve statistics about the store.
 These features will be elaborated on in the next sections.
-Finally, we introduce two example datasets that can be used to discover the interface.</p>
+Finally, we introduce two example datasets to discover the interface.</p>
 
         <p><span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> Admin is implemented as a Node.js Web application using the <a href="https://expressjs.com/" class="mandatory" data-link-text="https:/​/​expressjs.com/​">Express framework</a>.
 This was done using the <span class='abbreviation' title='Offset-enabled Triple store for Changesets'>OSTRICH</span> JavaScript bindings for Node.js.
 This application is available on <a href="https://github.com/rdfostrich/ostrich-admin" class="mandatory" data-link-text="https:/​/​github.com/​rdfostrich/​ostrich-​admin">GitHub</a> under an open license.
 A screencast demonstrating the usage of this application can be found on <a href="https://vimeo.com/246792247" class="mandatory" data-link-text="https:/​/​vimeo.com/​246792247">Vimeo</a>.</p>
-
-        <div class="pagebreak"></div>
 
         <h3 id="query">Query</h3>
 
@@ -446,7 +445,7 @@ In that regard, he executed numerous projects in Open Data legislation, digital 
 </footer>
 
 <span class="placeholder printonly">
-<span style="display: block; height: 30em;"></span>
+<span style="display: block; height: 5em;"></span>
 <!-- This is a dummy placeholder for forcing the references in a separate column -->
 </span>
 
