@@ -15,7 +15,13 @@ ingest new versions, and retrieve summarizing statistics.
 <!-- Conclusion   -->
 <!-- Perspectives -->
 
-<span id="keywords"><span class="title">Keywords</span> Linked Data; RDF; versioning; OSTRICH; triple store</span>
+<span id="keywords" rel="schema:about"><span class="title">Keywords</span>
+<a href="https://en.wikipedia.org/wiki/Linked_Data" resource="http://dbpedia.org/resource/Linked_Data">Linked Data</a>;
+<a href="https://en.wikipedia.org/wiki/Resource_Description_Framework" resource="http://dbpedia.org/resource/Resource_Description_Framework">RDF</a>;
+<a href="https://en.wikipedia.org/wiki/Versioning_file_system" resource="http://dbpedia.org/resource/Versioning_file_system">versioning</a>;
+<a href="https://github.com/rdfostrich/ostrich">OSTRICH</a>;
+<a href="https://en.wikipedia.org/wiki/Triplestore" resource="http://dbpedia.org/resource/Triplestore">triple store</a>
+</span>
 
 <span class="printonly" id="acmreferenceformat">
 <span class="title">ACM Reference Format:</span>
